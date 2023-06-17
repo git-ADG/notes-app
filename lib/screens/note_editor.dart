@@ -25,11 +25,11 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
         backgroundColor: AppStyle.cardColors[color_id],
         elevation: 0.0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Add a new note",
           style: TextStyle(color: Colors.black),
         ),
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -39,17 +39,17 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
             TextField(
               controller: _titleController,
               style: AppStyle.mainTitle,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Note Title"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(
               date,
               style: AppStyle.dateTitle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 28,
             ),
             TextField(
@@ -57,7 +57,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
               keyboardType: TextInputType.multiline,
               maxLines: null,
               style: AppStyle.mainContent,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Note Content"),
             )
           ],
@@ -71,12 +71,11 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
             "notes_content": _mainController.text,
             "color_id":color_id
           }).then((value) {
-            print(value.id);
             Navigator.pop(context);
           });
         },
         backgroundColor: AppStyle.accentColor,
-        child: Icon(Icons.save),
+        child: const Icon(Icons.save),
       ),
     );
   }

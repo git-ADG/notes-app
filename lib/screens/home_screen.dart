@@ -20,7 +20,7 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
         backgroundColor: AppStyle.mainColor,
-        title: const Text("FireNotes"),
+        title: const Text("FireNotes", style: TextStyle(color: Colors.black),),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -33,11 +33,11 @@ class _HomepageState extends State<Homepage> {
             Text(
               "Your recent notes",
               style: GoogleFonts.roboto(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 22),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -46,13 +46,13 @@ class _HomepageState extends State<Homepage> {
                     FirebaseFirestore.instance.collection("Notes").snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                   if (snapshot.hasData) {
                     return GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2),
                       children: snapshot.data!.docs
                           .map((notes) => NoteCard(() {
@@ -83,11 +83,11 @@ class _HomepageState extends State<Homepage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => NoteEditorScreen(),
+                builder: (context) => const NoteEditorScreen(),
               ));
         },
-        label: Text("Add note"),
-        icon: Icon(Icons.add),
+        label: const Text("Add note"),
+        icon: const Icon(Icons.add),
       ),
     );
   }

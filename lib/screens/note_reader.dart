@@ -18,7 +18,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
     return Scaffold(
       backgroundColor: AppStyle.cardColors[color_id],
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0.0,
         backgroundColor: AppStyle.cardColors[color_id],
       ),
@@ -31,14 +31,14 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
               widget.doc['notes_title'],
               style: AppStyle.mainTitle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
               widget.doc['creation_date'],
               style: AppStyle.dateTitle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 28,
             ),
             Text(
@@ -55,7 +55,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
               .delete()
               .then((value) => Navigator.pop(context));
         },
-        child: Icon(Icons.delete),
+        child: const Icon(Icons.delete),
       ),
     );
   }
