@@ -1,16 +1,25 @@
-# notes
+<h1 align="center" id="title">Notes App in Flutter &amp; Firebase</h1>
 
-A new Flutter project.
+<p id="description">A notes app made using Flutter and Firebase. It has simple UI and has features like reading adding and deleting notes</p>
 
-## Getting Started
+  
+  
+<h2>🧐 Features</h2>
 
-This project is a starting point for a Flutter application.
+Here're some of the project's best features:
 
-A few resources to get you started if this is your first Flutter project:
+*   simple UI
+*   read mode
+*   adding notes
+*   deleting notes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  
+  
+<h2>💻 Built with</h2>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Technologies used in the project:
+
+*   Flutter
+*   Dart
+*   Firebase
+*   Git
