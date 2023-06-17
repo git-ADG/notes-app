@@ -18,6 +18,7 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
     return Scaffold(
       backgroundColor: AppStyle.cardColors[color_id],
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0.0,
         backgroundColor: AppStyle.cardColors[color_id],
       ),
