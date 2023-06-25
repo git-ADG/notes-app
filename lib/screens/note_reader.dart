@@ -51,9 +51,12 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           FirebaseFirestore.instance
-              .collection("Notes").doc(widget.doc.id)
+              .collection("Notes")
+              .doc(widget.doc.id)
               .delete()
-              .then((value) => Navigator.pop(context));
+              .then((value) {
+            Navigator.pop(context);
+          });
         },
         child: const Icon(Icons.delete),
       ),

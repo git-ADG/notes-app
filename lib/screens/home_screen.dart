@@ -20,7 +20,10 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
         backgroundColor: AppStyle.mainColor,
-        title: const Text("FireNotes", style: TextStyle(color: Colors.black),),
+        title: const Text(
+          "FireNotes",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -52,8 +55,9 @@ class _HomepageState extends State<Homepage> {
                   }
                   if (snapshot.hasData) {
                     return GridView(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
                       children: snapshot.data!.docs
                           .map((notes) => NoteCard(() {
                                 Navigator.push(
@@ -85,6 +89,7 @@ class _HomepageState extends State<Homepage> {
               MaterialPageRoute(
                 builder: (context) => const NoteEditorScreen(),
               ));
+          setState(() {});
         },
         label: const Text("Add note"),
         icon: const Icon(Icons.add),

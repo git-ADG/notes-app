@@ -11,18 +11,27 @@ class NoteEditorScreen extends StatefulWidget {
   State<NoteEditorScreen> createState() => _NoteEditorScreenState();
 }
 
-int color_id = Random().nextInt(AppStyle.cardColors.length);
+int? color_id;
 TextEditingController _titleController = TextEditingController();
 TextEditingController _mainController = TextEditingController();
 String date = DateTime.now().toString();
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _titleController.text='';
+    _mainController.text='';
+    color_id=Random().nextInt(AppStyle.cardColors.length);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyle.cardColors[color_id],
+      backgroundColor: AppStyle.cardColors[color_id!],
       appBar: AppBar(
-        backgroundColor: AppStyle.cardColors[color_id],
+        backgroundColor: AppStyle.cardColors[color_id!],
         elevation: 0.0,
         centerTitle: true,
         title: const Text(
@@ -64,12 +73,12 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async{
+        onPressed: () async {
           FirebaseFirestore.instance.collection("Notes").add({
             "notes_title": _titleController.text,
-            "creation_date":date,
+            "creation_date": date,
             "notes_content": _mainController.text,
-            "color_id":color_id
+            "color_id": color_id
           }).then((value) {
             Navigator.pop(context);
           });
