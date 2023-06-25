@@ -21,9 +21,9 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _titleController.text='';
-    _mainController.text='';
-    color_id=Random().nextInt(AppStyle.cardColors.length);
+    _titleController.text = '';
+    _mainController.text = '';
+    color_id = Random().nextInt(AppStyle.cardColors.length);
   }
 
   @override
@@ -74,15 +74,17 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          (_titleController.text!='' || _mainController.text!='')?
-          FirebaseFirestore.instance.collection("Notes").add({
-            "notes_title": _titleController.text,
-            "creation_date": date,
-            "notes_content": _mainController.text,
-            "color_id": color_id
-          }).then((value) {
-            Navigator.pop(context);
-          }): ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('note cannot be empty!')));
+          (_titleController.text != '' || _mainController.text != '')
+              ? FirebaseFirestore.instance.collection("Notes").add({
+                  "notes_title": _titleController.text,
+                  "creation_date": date,
+                  "notes_content": _mainController.text,
+                  "color_id": color_id
+                }).then((value) {
+                  Navigator.pop(context);
+                })
+              : ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('note cannot be empty!')));
         },
         backgroundColor: AppStyle.accentColor,
         child: const Icon(Icons.save),
