@@ -14,7 +14,7 @@ class NoteEditorScreen extends StatefulWidget {
 int? color_id;
 TextEditingController _titleController = TextEditingController();
 TextEditingController _mainController = TextEditingController();
-String date = DateTime.now().toString();
+String? date;
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
   @override
@@ -24,6 +24,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
     _titleController.text = '';
     _mainController.text = '';
     color_id = Random().nextInt(AppStyle.cardColors.length);
+    date = DateTime.now().toString();
   }
 
   @override
@@ -55,7 +56,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
               height: 8,
             ),
             Text(
-              date,
+              date!,
               style: AppStyle.dateTitle,
             ),
             const SizedBox(
